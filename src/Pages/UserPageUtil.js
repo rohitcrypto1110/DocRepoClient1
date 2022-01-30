@@ -11,7 +11,7 @@ class UserPageUtil extends Component{
 		}
 	}
 	componentDidMount(){
-		fetch('http://localhost:5000/url/getUrlData',{
+		fetch('https://dockrbin-server.herokuapp.com/url/getUrlData',{
             method: 'post',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(

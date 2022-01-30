@@ -1,6 +1,6 @@
 
 const DescriptionPopUp=(props)=>{
-    const {type, file, message, name, title, version} = props.data;
+    const {type, message, name, title, version} = props.data;
     return(
         <div className="popup">
             <div className="overlay"></div>

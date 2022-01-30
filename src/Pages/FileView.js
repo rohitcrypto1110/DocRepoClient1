@@ -23,7 +23,7 @@ class FileView extends Component {
             this.state.popup?
             <DescriptionPopUp togglePopup={this.togglePopup} data={this.props}/>:<div></div>
         }
-       {type==='png'?<img src={file}/>:<h2> Can't display file </h2>}
+       {type==='png'?<img src={file} alt=""/>:<h2> Can't display file </h2>}
       </div>
     );
   }

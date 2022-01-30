@@ -40,9 +40,9 @@ class UserPageUtil extends Component{
 		return(
 		  <div>
 			{
-			  	this.state.data==""?
+			  	this.state.data===""?
 			  	<h1>Loading . . .</h1>:
-			  	this.state.message==""?
+			  	this.state.message===""?
 			  	<h1>hey</h1>:
 			  	<h1>{this.state.message}</h1>
 			}

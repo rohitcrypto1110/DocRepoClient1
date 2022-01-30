@@ -55,6 +55,7 @@ p{
   width: 200px;
 }
 .btn:hover{
+  cursor: pointer;
   color: white;
   background-color: darkgreen;
 }

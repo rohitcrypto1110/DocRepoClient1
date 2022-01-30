@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import FileView from './FileView.js';
 
 class UserPageUtil extends Component{
 	constructor(props){
@@ -18,32 +19,52 @@ class UserPageUtil extends Component{
                 id: this.props.id
             })
         })
-        .then(res=>res.json())
+        .then(res=>{
+        	if(res.status!==200)
+        		throw "";
+        	return res.json()}
+        	)
         .then(data=>{
+        	let s=data.selectedFile;
+        	//console.log(s)
+        	let i=0;
+        	for(;i<30;i++)
+        		if(s[i]==='/')
+        			break;
+        	i++;
+        	let j=i;
+        	for(;j<40;j++)
+        		if(s[j]===';')
+        			break;
+        	let fileType=s.substring(i,j);
         	this.setState(
 			{
 				id: this.props.id,
-				data: data
+				data: data,
+				fileType: fileType,
+				message: "",
+				//imgSrc: data.selectedFile
 			})
+        	
         })
         .catch(err=>{
         	this.setState(
 			{
 				id: this.props.id,
-				message: err.message+", verify the URL",
+				message: err.message+ "\nPlease verify the URL",
 				data: "nothing"
 			})
         });
 	}
 	render(){
-		console.log(this.state)
+		//console.log(this.state)
 		return(
 		  <div>
 			{
 			  	this.state.data===""?
 			  	<h1>Loading . . .</h1>:
 			  	this.state.message===""?
-			  	<h1>hey</h1>:
+			  	<FileView type={this.state.fileType} file={this.state.data.selectedFile}/>:
 			  	<h1>{this.state.message}</h1>
 			}
 		  </div>

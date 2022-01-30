@@ -57,14 +57,14 @@ class UserPageUtil extends Component{
         });
 	}
 	render(){
-		//console.log(this.state)
+		//console.log(this.state.data)
 		return(
 		  <div>
 			{
 			  	this.state.data===""?
 			  	<h1>Loading . . .</h1>:
 			  	this.state.message===""?
-			  	<FileView type={this.state.fileType} file={this.state.data.selectedFile}/>:
+			  	<FileView type={this.state.fileType} file={this.state.data.selectedFile} message={this.state.data.message} purpose={this.state.data.purpose} name={this.state.data.name} title={this.state.data.title} version={this.state.data.version}/>:
 			  	<h1>{this.state.message}</h1>
 			}
 		  </div>

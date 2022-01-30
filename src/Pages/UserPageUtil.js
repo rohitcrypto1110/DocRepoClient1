@@ -21,7 +21,7 @@ class UserPageUtil extends Component{
         })
         .then(res=>{
         	if(res.status!==200)
-        		throw "damn error";
+        		throw Error("damn error");
         	return res.json()}
         	)
         .then(data=>{
